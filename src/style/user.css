@@ -1,0 +1,61 @@
+@keyframes container-anim {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes welcome {
+  0% {
+    opacity: 0;
+    padding-top: 0;
+  }
+
+  100% {
+    opacity: 1;
+    padding-top: 50px;
+  }
+}
+
+.container-user {
+  animation: container-anim 2s;
+}
+
+.content {
+  padding: 10px 50px;
+}
+
+label {
+  margin-top: 10px;
+}
+
+.first-message {
+  text-align: center;
+  animation: welcome 2s forwards;
+}
+
+.button-stress {
+  margin: auto;
+  float: right;
+  border-radius: 12px;
+  background-color: white;
+  border: 1px solid #707070;
+  padding: 0px 20px;
+  margin-bottom: 30px;
+}
+
+.button-send-stress:focus {
+  margin: auto;
+  float: right;
+  border-radius: 12px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 0px 20px;
+}
+
+h4 {
+  font-weight: 300;
+}
