@@ -1,10 +1,23 @@
 import React, { Component } from "react";
 import { GoTrashcan } from "react-icons/go";
-import { FiEdit } from "react-icons/fi";
-
+import Edit from "./Edit";
 import "../style/card.css";
+import Moment from "moment";
 
 export class Card extends Component {
+  handleDialogOpen = () => {
+    this.setState({
+      isOpen: true
+    });
+  };
+
+  handleDialogClose = () => {
+    this.setState({
+      isOpen: false,
+      userInfoArray: JSON.parse(localStorage.getItem("userInfo"))
+    });
+  };
+
   onDelete = item => {
     const stresses = this.props.userInfoArray;
     const filterStress = stresses.filter(filtered => {
@@ -23,13 +36,17 @@ export class Card extends Component {
       localStorage.setItem("userInfo", JSON.stringify(stresses));
     }
 
-    this.setState({
-      userInfoArray: JSON.parse(localStorage.getItem("userInfo"))
-    });
+    this.props.updateList(stresses);
   };
 
   render() {
-    const items = this.props.userInfoArray;
+    const items = this.props.userInfoArray.sort((a, b) => {
+      return b.StressDate - a.StressDate;
+    });
+
+    console.log(this.props);
+
+    console.log("sorted items: ", items);
 
     if (localStorage.getItem("userInfo") != null) {
       return (
@@ -57,8 +74,10 @@ export class Card extends Component {
                 <div className="cards">
                   <p className="text">
                     O seu nível de estresse no dia{" "}
-                    <strong>{stress.StressDate}</strong> chegou ao nível{" "}
-                    <strong>{stress.StressLevel}</strong>!
+                    <strong>
+                      {Moment(stress.StressDate).format("DD/MM/YYYY")}
+                    </strong>{" "}
+                    chegou ao nível <strong>{stress.StressLevel}</strong>!
                     {stress.StressLevel >= 7 ? (
                       <span>
                         {" "}
@@ -85,8 +104,11 @@ export class Card extends Component {
                     </button>
                   </div>
                   <div className="card-button-div">
-                    <button className="card-button" onClick={() => ""}>
-                      <FiEdit className="card-icon" />
+                    <button
+                      className="card-button"
+                      onClick={() => this.setState({ isOpen: true })}
+                    >
+                      <Edit state={this.props} item={stress} />
                     </button>
                   </div>
                 </div>

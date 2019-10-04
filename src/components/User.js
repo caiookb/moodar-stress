@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Moment from "moment";
 
 import Card from "./Card";
 import "../style/user.css";
@@ -11,10 +12,15 @@ class User extends Component {
         ? JSON.parse(localStorage.getItem("userInfo"))
         : []
   };
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
+  };
+
+  updateList = event => {
+    this.setState({ this: JSON.parse(localStorage.getItem("userInfo")) });
   };
 
   onSubmit = async event => {
@@ -30,7 +36,7 @@ class User extends Component {
         this.state.userInfoArray[0] != null
           ? this.state.userInfoArray.slice(-1)[0].id + 1
           : 1,
-      StressDate: this.state.stressDate,
+      StressDate: Moment(this.state.stressDate).format(),
       StressLevel: this.state.stressLevel
     });
 
@@ -48,11 +54,15 @@ class User extends Component {
     });
   };
 
+  componentDidUpdate() {
+    console.log("did updated: ", this.state.userInfoArray);
+  }
+
   render() {
     const username = JSON.parse(localStorage.getItem("UserName"));
     const userInfoStorage = localStorage.getItem("userInfo");
-
-    console.log("actual state: ", this.state.userInfoArray);
+    console.log("actual state : ", this.state);
+    console.log("actual state info: ", this.state.userInfoArray);
 
     return (
       <div className="container-user">
@@ -91,7 +101,7 @@ class User extends Component {
             <button className="button-stress">Enviar</button>
           </form>
 
-          <Card {...this.state} />
+          <Card {...this.state} updateList={this.updateList} />
 
           <div style={{ display: !userInfoStorage ? "none" : "unset" }}>
             <button className="button-stress" onClick={this.cleanStorage}>
