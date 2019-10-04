@@ -44,10 +44,6 @@ export class Card extends Component {
       return b.StressDate - a.StressDate;
     });
 
-    console.log(this.props);
-
-    console.log("sorted items: ", items);
-
     if (localStorage.getItem("userInfo") != null) {
       return (
         <div className="list-component">

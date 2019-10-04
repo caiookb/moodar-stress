@@ -55,7 +55,6 @@ export class DialogBox extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <FiEdit onClick={this.handleClickOpen} />

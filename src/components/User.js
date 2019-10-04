@@ -54,15 +54,9 @@ class User extends Component {
     });
   };
 
-  componentDidUpdate() {
-    console.log("did updated: ", this.state.userInfoArray);
-  }
-
   render() {
     const username = JSON.parse(localStorage.getItem("UserName"));
     const userInfoStorage = localStorage.getItem("userInfo");
-    console.log("actual state : ", this.state);
-    console.log("actual state info: ", this.state.userInfoArray);
 
     return (
       <div className="container-user">
