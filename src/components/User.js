@@ -36,7 +36,7 @@ class User extends Component {
         this.state.userInfoArray[0] != null
           ? this.state.userInfoArray.slice(-1)[0].id + 1
           : 1,
-      StressDate: Moment(this.state.stressDate).format(),
+      StressDate: Moment(this.state.stressDate).toDate(),
       StressLevel: this.state.stressLevel
     });
 
