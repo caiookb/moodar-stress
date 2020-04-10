@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/moodar-stress/static/css/main.b5aa385d.chunk.css",
+    "main.js": "/moodar-stress/static/js/main.8dd824d8.chunk.js",
+    "main.js.map": "/moodar-stress/static/js/main.8dd824d8.chunk.js.map",
+    "runtime-main.js": "/moodar-stress/static/js/runtime-main.d132401d.js",
+    "runtime-main.js.map": "/moodar-stress/static/js/runtime-main.d132401d.js.map",
+    "static/css/2.0624914a.chunk.css": "/moodar-stress/static/css/2.0624914a.chunk.css",
+    "static/js/2.2510855b.chunk.js": "/moodar-stress/static/js/2.2510855b.chunk.js",
+    "static/js/2.2510855b.chunk.js.map": "/moodar-stress/static/js/2.2510855b.chunk.js.map",
+    "index.html": "/moodar-stress/index.html",
+    "precache-manifest.37454f2db07bdbe04f96e3a4438aa628.js": "/moodar-stress/precache-manifest.37454f2db07bdbe04f96e3a4438aa628.js",
+    "service-worker.js": "/moodar-stress/service-worker.js",
+    "static/css/2.0624914a.chunk.css.map": "/moodar-stress/static/css/2.0624914a.chunk.css.map",
+    "static/css/main.b5aa385d.chunk.css.map": "/moodar-stress/static/css/main.b5aa385d.chunk.css.map"
+  }
+}
